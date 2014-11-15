@@ -4,4 +4,5 @@ module.exports = (robot) ->
     robot.http('http://quotable.meteor.com/api/quotes/' + user)
       .get() (err, res, body) ->
         data = JSON.parse(body)
-        msg.send "#{data.quotes[Math.floor(Math.random() * data.quotes.length)]}"
+        if #{data.quotes.length} > 0
+          msg.send "#{data.quotes[Math.floor(Math.random() * data.quotes.length)]}"
